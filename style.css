@@ -1,0 +1,137 @@
+.effects-2d , .effects-3d, .transitions{
+  display: flex;
+  gap: 3rem;
+  height: 400px;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 2D Effects */
+.move-box, .spin-box, .zoom-box, .tilt-box, .matrix-box {
+  width: 250px;
+  height: 90px;
+  background-color: #ffeb99;
+  border: 2px solid #444;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.move-box:hover {
+  transform: translate(40px,80px);
+  background-color: #ffd966;
+}
+.spin-box:hover {
+  transform: rotate(25deg);
+  background-color: #f4cccc;
+}
+.zoom-box:hover {
+  transform: scale(0.7, 1.5);
+  background-color: #a2c4c9;
+}
+.tilt-box:hover {
+  transform: skewY(15deg);
+  background-color: #b6d7a8;
+}
+.matrix-box:hover {
+  transform: matrix(1, 0.2, 0, 1, 0, 0);
+  background-color: #c9daf8;
+}
+
+/* 3D Origin */
+#origin-wrap{
+  position: relative;
+  height: 200px;
+  width: 200px;
+  margin: 80px;
+  padding: 10px;
+  border: 2px dashed #666;
+}
+
+#origin-item{
+  padding: 40px;
+  position: absolute;
+  border: 2px solid #333;
+  background-color: #f28b82;
+  color: white;
+  font-weight: bold;
+}
+#origin-item:hover{
+  transform: rotate(45deg);
+  transform-origin: 30% 60%;
+  background-color: #d65db1;
+}
+
+/* 3D Cube */
+.cube-scene {
+  perspective: 900px;
+}
+.cube-shape {
+  font-size: 3em;
+  width: 2em;
+  margin: 1.5em auto;
+  transform-style: preserve-3d;
+  transform: rotateX(-35deg) rotateY(40deg);
+}
+.face {
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background: rgba(120,150,220,0.6);
+  border: 2px solid #333;
+  text-align: center;
+  line-height: 2em;
+  font-weight: bold;
+}
+
+.front {transform: translateZ(1em);}
+.top {transform: rotateX(90deg) translateZ(1em);}
+.right {transform: rotateY(90deg) translateZ(1em);}
+.left {transform: rotateY(-90deg) translateZ(1em);}
+.bottom {transform: rotateX(-90deg) translateZ(1em);}
+.back {transform: rotateY(-180deg) translateZ(1em);}
+
+/* Transitions */
+.box-one{
+  width: 100px;
+  height: 100px;
+  background: #6fa8dc;
+  transition: width 1s ease-in 0.5s;
+}
+
+.box-one:hover {
+  width: 280px;
+  background: #3d85c6;
+}
+
+.box-two{
+  width: 100px;
+  height: 100px;
+  background: #93c47d;
+  transition: width 2s ease-out 0.8s;
+}
+
+.box-two:hover {
+  width: 280px;
+  background: #38761d;
+}
+
+/* Animations */
+.moving-box{
+  width: 100px;
+  height: 100px;
+  background-color: #e06666;
+  position: relative;
+  animation: moveSquare 4s ease-in-out 1s infinite alternate;
+}
+
+@keyframes moveSquare {
+  0%   {background-color:#e06666; left:0; top:0;}
+  25%  {background-color:#ffd966; left:180px; top:0;}
+  50%  {background-color:#6fa8dc; left:180px; top:180px;}
+  75%  {background-color:#93c47d; left:0; top:180px;}
+  100% {background-color:#e06666; left:0; top:0;}
+}
